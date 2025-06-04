@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./db/connect');
 const waitlistRoutes = require('./routes/waitlist');
+const userRoutes = require('./routes/user'); 
 const https = require('https');
 const querystring = require('querystring');
 
@@ -172,6 +173,8 @@ app.post('/send-email', async (req, res) => {
 });
 
 app.use('/', waitlistRoutes);
+app.use('/api', userRoutes);
+
 
 const PORT = 3001;
 app.listen(PORT, () => {
